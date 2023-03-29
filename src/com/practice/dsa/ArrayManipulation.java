@@ -315,6 +315,34 @@ public class ArrayManipulation {
         }
     }
 
+    private static List<Integer> checkNumbers(int[] arr) {
+        System.out.println();
+        List<Integer> res = new ArrayList<>();
+
+        for (Integer number : arr) {
+            String str = String.valueOf(number);
+            if (str.charAt(0) == '2')
+                res.add(number);
+        }
+
+        return res;
+    }
+
+    private static Map<Integer, Integer> checkOccurrences(int[] arr) {
+        System.out.println();
+        Map<Integer, Integer> res = new LinkedHashMap<>();
+
+        for (Integer number : arr) {
+            if (res.containsKey(number)) {
+                res.put(number, res.get(number) + 1);
+            } else {
+                res.put(number, 1);
+            }
+        }
+
+        return res;
+    }
+
 
     private static Collection<Integer> removeEvenNumbers(List<Integer> l) {
 
@@ -327,6 +355,7 @@ public class ArrayManipulation {
         int[] sumOf3GivenTarget = {7, -6, 3, 8, -1, 8, -11};
         int[] majorityItemInArray = {3, 2, 1, 2, 5, 7, 2, 2, 2};
         int[] reverse = {3, 4, 5, 6, 2, 1};
+        int[] arrForOccAndCheck = {56, 23, 56, 9, 12, 20, 10, 12};
         int[][] rotateMatrixByNinty = {{1, 2, 3, 4},
                 {5, 6, 7, 8},
                 {9, 10, 11, 12},
@@ -359,6 +388,8 @@ public class ArrayManipulation {
         System.out.println("\n" + removeEvenNumbers(Arrays.asList(13, 5, 72, 88, 41, 7, 31)));
 
         sortArrayForEvenOdd(majorityItemInArray);
+        System.out.println(checkNumbers(arrForOccAndCheck));
+        System.out.println(checkOccurrences(arrForOccAndCheck));
     }
 
 
